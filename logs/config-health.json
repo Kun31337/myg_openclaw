@@ -1,0 +1,22 @@
+{
+  "entries": {
+    "/Users/zhu/.openclaw/openclaw.json": {
+      "lastKnownGood": {
+        "hash": "850c7cd29ecc00fd4a3d42f614f30d2d3610961c0b414f2dd2fec7bd2e0a0f8e",
+        "bytes": 9711,
+        "mtimeMs": 1776827129802.9639,
+        "ctimeMs": 1776827129802.9639,
+        "dev": "16777232",
+        "ino": "14252661",
+        "mode": 384,
+        "nlink": 1,
+        "uid": 501,
+        "gid": 20,
+        "hasMeta": true,
+        "gatewayMode": "local",
+        "observedAt": "2026-04-22T03:05:29.988Z"
+      },
+      "lastObservedSuspiciousSignature": null
+    }
+  }
+}

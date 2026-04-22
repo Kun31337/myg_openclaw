@@ -1,0 +1,90 @@
+# OpenClaw 敏感配置 - Git  ignore 规则
+
+## 🔑 API Keys & Secrets (核心安全)
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+*.secret
+api_key*
+apikey*
+API_KEY*
+AUTH_TOKEN*
+ACCESS_TOKEN*
+SECRET_KEY*
+
+## 📁 本地配置（不要上传）
+config/
+configuration.json
+settings.local.json
+secrets.yaml
+credentials.json
+
+## 🗂️ Agent 运行时数据 (核心安全！)
+agents/**/*.json
+agents/*/logs/
+agents/*/cache/
+agents/*/temp/
+
+## 💾 数据库与存储
+*.db
+*.sqlite
+*.sqlite3
+*.mdb
+data/
+storage/
+
+## 🖼️ 临时文件
+*.tmp
+*.temp
+*.bak
+*.backup
+*.swp
+*.swo
+*~
+
+## 🌐 Node 相关
+node_modules/
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+.pnpm-store/
+
+## 🎨 IDE 与编辑器
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+.DS_Store
+Thumbs.db
+
+## 📊 构建产物
+dist/
+build/
+out/
+*.log
+
+## 🧪 测试临时文件
+coverage/
+.nyc_output/
+test-results/
+
+## 🤖 Docker
+docker-compose.override.yml
+*.override.yml
+
+## 📝 其他项目特定忽略
+**.tgz
+**.tar.gz
+*.dmg
+
+## 🔒 OpenClaw 专用
+browser/user-data/
+plugins.cache
+gateway.token
+
+## ⚠️ 注意：可以公开的配置
+# *.json  # 如果你想保留 package.json 等公共配置
+# README.md  # 文档应该公开
+# LICENSE  # 许可证应该公开

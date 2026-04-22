@@ -1,0 +1,89 @@
+{
+  "65b41437e2678a87d8511f2f8b7364c6b9548a2718d7c806f1952b91caa748e4": {
+    "deviceId": "65b41437e2678a87d8511f2f8b7364c6b9548a2718d7c806f1952b91caa748e4",
+    "publicKey": "yqxtkPXre2bf1Td2z4dIo_8V_6EMLxqURGbxb3aV8Jg",
+    "platform": "darwin",
+    "clientId": "gateway-client",
+    "clientMode": "backend",
+    "role": "operator",
+    "roles": [
+      "operator"
+    ],
+    "scopes": [
+      "operator.read",
+      "operator.admin",
+      "operator.write",
+      "operator.approvals",
+      "operator.pairing",
+      "operator.talk.secrets"
+    ],
+    "approvedScopes": [
+      "operator.read",
+      "operator.admin",
+      "operator.write",
+      "operator.approvals",
+      "operator.pairing",
+      "operator.talk.secrets"
+    ],
+    "tokens": {
+      "operator": {
+        "token": "l-QYMHvDMH1ud2Z3FdgSq6xnGyI2ezZL8VEG0-BtiB4",
+        "role": "operator",
+        "scopes": [
+          "operator.admin",
+          "operator.approvals",
+          "operator.pairing",
+          "operator.read",
+          "operator.talk.secrets",
+          "operator.write"
+        ],
+        "createdAtMs": 1776734380041,
+        "rotatedAtMs": 1776742048160
+      }
+    },
+    "createdAtMs": 1776734380041,
+    "approvedAtMs": 1776742048160,
+    "displayName": "agent"
+  },
+  "a1e89358b3767f5442f5a9dfad850cf644359011fd34c93b055bbc88add4adee": {
+    "deviceId": "a1e89358b3767f5442f5a9dfad850cf644359011fd34c93b055bbc88add4adee",
+    "publicKey": "Ibo8VTcYdSDThQsuR3J3LqP3ZE3t6j8d-giw8lSSlAs",
+    "platform": "MacIntel",
+    "clientId": "openclaw-control-ui",
+    "clientMode": "webchat",
+    "role": "operator",
+    "roles": [
+      "operator"
+    ],
+    "scopes": [
+      "operator.admin",
+      "operator.read",
+      "operator.write",
+      "operator.approvals",
+      "operator.pairing"
+    ],
+    "approvedScopes": [
+      "operator.admin",
+      "operator.read",
+      "operator.write",
+      "operator.approvals",
+      "operator.pairing"
+    ],
+    "tokens": {
+      "operator": {
+        "token": "Xvm6WEvgCb7OEhIX7F5kKeQXAS_Z-1PiiX2xLBlr7Fc",
+        "role": "operator",
+        "scopes": [
+          "operator.admin",
+          "operator.approvals",
+          "operator.pairing",
+          "operator.read",
+          "operator.write"
+        ],
+        "createdAtMs": 1776734391006
+      }
+    },
+    "createdAtMs": 1776734391006,
+    "approvedAtMs": 1776734391006
+  }
+}

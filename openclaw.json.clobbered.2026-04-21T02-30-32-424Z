@@ -1,0 +1,228 @@
+{
+  "agents": {
+    "defaults": {
+      "compaction": {
+        "reserveTokensFloor": 30000
+      },
+      "workspace": "/Users/zhu/.openclaw/workspace",
+      "model": {
+        "primary": "custom-v2-aicodee-com/MiniMax-M2.7-highspeed"
+      },
+      "models": {
+        "custom-v2-aicodee-com/MiniMax-M2.7-highspeed": {}
+      }
+    },
+    "list": [
+      {
+        "id": "main"
+      },
+      {
+        "id": "general_manager_shrimp",
+        "name": "General_Manager_Shrimp",
+        "workspace": "/Users/zhu/.openclaw/workspace/general_manager_shrimp",
+        "agentDir": "/Users/zhu/.openclaw/agents/general_manager_shrimp/agent"
+      },
+      {
+        "id": "branding_shrimp",
+        "name": "Branding_Shrimp",
+        "workspace": "/Users/zhu/.openclaw/workspace/branding_shrimp",
+        "agentDir": "/Users/zhu/.openclaw/agents/branding_shrimp/agent"
+      },
+      {
+        "id": "lead_gen_shrimp",
+        "name": "Lead_Gen_Shrimp",
+        "workspace": "/Users/zhu/.openclaw/workspace/lead_gen_shrimp",
+        "agentDir": "/Users/zhu/.openclaw/agents/lead_gen_shrimp/agent"
+      },
+      {
+        "id": "short_video_shrimp",
+        "name": "Short_Video_Shrimp",
+        "workspace": "/Users/zhu/.openclaw/workspace/short_video_shrimp",
+        "agentDir": "/Users/zhu/.openclaw/agents/short_video_shrimp/agent"
+      },
+      {
+        "id": "private_ops_shrimp",
+        "name": "Private_Ops_Shrimp",
+        "workspace": "/Users/zhu/.openclaw/workspace/private_ops_shrimp",
+        "agentDir": "/Users/zhu/.openclaw/agents/private_ops_shrimp/agent"
+      },
+      {
+        "id": "key_account_sales_shrimp",
+        "name": "Key_Account_Sales_Shrimp",
+        "workspace": "/Users/zhu/.openclaw/workspace/key_account_sales_shrimp",
+        "agentDir": "/Users/zhu/.openclaw/agents/key_account_sales_shrimp/agent"
+      },
+      {
+        "id": "standard_processor_shrimp",
+        "name": "Standard_Processor_Shrimp",
+        "workspace": "/Users/zhu/.openclaw/workspace/standard_processor_shrimp",
+        "agentDir": "/Users/zhu/.openclaw/agents/standard_processor_shrimp/agent"
+      },
+      {
+        "id": "key_account_processor_shrimp",
+        "name": "Key_Account_Processor_Shrimp",
+        "workspace": "/Users/zhu/.openclaw/workspace/key_account_processor_shrimp",
+        "agentDir": "/Users/zhu/.openclaw/agents/key_account_processor_shrimp/agent"
+      },
+      {
+        "id": "after_sales_shrimp",
+        "name": "After_sales_Shrimp",
+        "workspace": "/Users/zhu/.openclaw/workspace/after_sales_shrimp",
+        "agentDir": "/Users/zhu/.openclaw/agents/after_sales_shrimp/agent"
+      },
+      {
+        "id": "data_analyst_shrimp",
+        "name": "Data_Analyst_Shrimp",
+        "workspace": "/Users/zhu/.openclaw/workspace/data_analyst_shrimp",
+        "agentDir": "/Users/zhu/.openclaw/agents/data_analyst_shrimp/agent"
+      },
+      {
+        "id": "all_round_support_shrimp",
+        "name": "All_round_Support_Shrimp",
+        "workspace": "/Users/zhu/.openclaw/workspace/all_round_support_shrimp",
+        "agentDir": "/Users/zhu/.openclaw/agents/all_round_support_shrimp/agent"
+      },
+      {
+        "id": "standard_sales_shrimp",
+        "name": "Standard_Sales_Shrimp",
+        "workspace": "/Users/zhu/.openclaw/workspace/standard_sales_shrimp",
+        "agentDir": "/Users/zhu/.openclaw/agents/standard_sales_shrimp/agent"
+      }
+    ]
+  },
+  "gateway": {
+    "mode": "local",
+    "auth": {
+      "mode": "token",
+      "token": "c6ca8c3d3868542617827cc371892c602aa6f8f3619537dc"
+    },
+    "port": 18789,
+    "bind": "loopback",
+    "tailscale": {
+      "mode": "off",
+      "resetOnExit": false
+    },
+    "controlUi": {
+      "allowInsecureAuth": true
+    },
+    "nodes": {
+      "denyCommands": [
+        "camera.snap",
+        "camera.clip",
+        "screen.record",
+        "contacts.add",
+        "calendar.add",
+        "reminders.add",
+        "sms.send",
+        "sms.search"
+      ]
+    }
+  },
+  "session": {
+    "dmScope": "per-channel-peer"
+  },
+  "tools": {
+    "profile": "coding"
+  },
+  "models": {
+    "mode": "merge",
+    "providers": {
+      "custom-v2-aicodee-com": {
+        "baseUrl": "https://v2.aicodee.com/v1",
+        "api": "openai-completions",
+        "apiKey": "sk-7cf796d53da03f1456f0d699ef7c8c2a",
+        "models": [
+          {
+            "id": "MiniMax-M2.7-highspeed",
+            "name": "MiniMax-M2.7-highspeed (Custom Provider)",
+            "contextWindow": 130000,
+            "maxTokens": 64000,
+            "input": ["text"],
+            "cost": {
+              "input": 0,
+              "output": 0,
+              "cacheRead": 0,
+              "cacheWrite": 0
+            },
+            "reasoning": false
+          }
+        ]
+      }
+    }
+  },
+  "wizard": {
+    "lastRunAt": "2026-04-21T01:19:35.809Z",
+    "lastRunVersion": "2026.4.15",
+    "lastRunCommand": "onboard",
+    "lastRunMode": "local"
+  },
+  "meta": {
+    "lastTouchedVersion": "2026.4.15",
+    "lastTouchedAt": "2026-04-21T02:24:03.604Z"
+  },
+  "channels": {
+    "feishu": {
+      "streaming":true,
+      "blockstreaming":true
+
+      "accounts": {
+        "general_manager_shrimp": {
+          "appId": "cli_a96c6a2e3cf85bcd",
+          "appSecret": "IQrIkwFWmvUyzNjKaGh0rrLuGXemkH0L",
+          "name": "general_manager_shrimp"
+        },
+        "branding_shrimp": {
+          "appId": "cli_a96c6b5755639bc6",
+          "appSecret": "jJ96WHZb4ZEY3dIE1n9r1bQUJiVD2CzL",
+          "name": "branding_shrimp"
+        },
+        "lead_gen_shrimp": {
+          "appId": "cli_a96c6bf0d838dbc3",
+          "appSecret": "Proise0p1kKvqu5SVgZP5f2aqKfOZdoK",
+          "name": "lead_gen_shrimp"
+        },
+        "short_video_shrimp": {
+          "appId": "cli_a96c645f17ba9bd3",
+          "appSecret": "95nN8XJXMK48p78tIYoN5fm0gFpX2pyU",
+          "name": "short_video_shrimp"
+        },
+        "private_ops_shrimp": {
+          "appId": "cli_a96c649b66385bd4",
+          "appSecret": "63BQxzszp3slEbDvHsWbqcSuBK5RgbZL",
+          "name": "private_ops_shrimp"
+        },
+        "standard_sales_shrimp": {
+          "appId": "cli_a96c64d7fab8dbd6",
+          "appSecret": "xoASblIt2zGz4x9NsYHlCcdnwVwObEne",
+          "name": "standard_sales_shrimp"
+        },
+        "key_account_sales_shrimp": {
+          "appId": "cli_a96c650f7ff81bcb",
+          "appSecret": "lkGTVP5ez2nFoWJ1ojrwTfgPiZqGgEnY",
+          "name": "key_account_sales_shrimp"
+        },
+        "standard_processor_shrimp": {
+          "appId": "cli_a96c654a85791bc4",
+          "appSecret": "WcxAaB5s6Dc10O5W5OQUdc3gLL1o3OLT",
+          "name": "standard_processor_shrimp"
+        },
+        "key_account_processor_shrimp": {
+          "appId": "cli_a96c65bf7e3adbcb",
+          "appSecret": "4QnlDBpwfTotpZNZOUyBvIY8O3sBUNOI",
+          "name": "key_account_processor_shrimp"
+        },
+        "data_analyst_shrimp": {
+          "appId": "cli_a96c669c87b81bef",
+          "appSecret": "NDWqM3qtLwskVS4m6YdsqdgQj3oYWbHV",
+          "name": "data_analyst_shrimp"
+        },
+        "all_round_support_shrimp": {
+          "appId": "cli_a96c66cf467adbc8",
+          "appSecret": "dlXLqWASnqifRzioixVIJ6FHe6uhH8DH",
+          "name": "all_round_support_shrimp"
+        }
+      },
+      "enabled": true
+    }
+  }
+}
