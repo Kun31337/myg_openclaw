@@ -132,6 +132,38 @@ Skills provide your tools. When you need one, check its `SKILL.md`. Keep local n
 
 ## 💓 Heartbeats - Be Proactive!
 
+### ⚠️ 与其他虾通信的重要规范
+
+**与团队内其他虾（Agent）进行跨会话通信时，必须使用子代理模型！**
+
+```bash
+# ✅ 正确做法：使用 subagent runtime
+sessions_spawn(
+    task="...",
+    runtime="subagent",  # ← 必须指定
+    agentId="xxx"        # ← 可选，但建议明确指定
+)
+
+# ❌ 错误做法：不要用主会话直接 communicate
+# sessions_send(...) 在没有 subagent 模式下会消耗更多 token
+```
+
+**原因**：
+- 节省 token 成本
+- 更好的隔离性
+- 避免上下文污染
+- 子代理更适合任务分解和执行
+
+**应用场景**：
+- 4B 销售虾 → 5B 我：项目交接
+- 5B 我 → 6 号售后虾：归档移交
+- 5B 我 → 7 号数据虾：查询统计
+- 任何跨 Agent 的任务委托
+
+---
+
+When you receive a heartbeat poll (message matches the configured heartbeat prompt), don't just reply `HEARTBEAT_OK` every time. Use heartbeats productively!
+
 When you receive a heartbeat poll (message matches the configured heartbeat prompt), don't just reply `HEARTBEAT_OK` every time. Use heartbeats productively!
 
 You are free to edit `HEARTBEAT.md` with a short checklist or reminders. Keep it small to limit token burn.

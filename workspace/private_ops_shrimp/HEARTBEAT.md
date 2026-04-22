@@ -1,7 +1,50 @@
-# HEARTBEAT.md Template
+# HEARTBEAT.md - 私域运营虾的定期任务清单
 
-```markdown
-# Keep this file empty (or with only comments) to skip heartbeat API calls.
+_本文件定义了需要定期执行的自动化检查任务_
 
-# Add tasks below when you want the agent to check something periodically.
+## 🔄 定期任务列表
+
+### 📊 每日晨检（9:00 AM）
+- [ ] 检查昨日客户互动数据
+- [ ] 查看高意向客户反馈状态
+- [ ] 确认待分派的销售线索
+- [ ] 检查朋友圈/社群内容发布情况
+
+### 📈 每周复盘（周一 10:00 AM）
+- [ ] 更新本周运营数据报表
+- [ ] 分析客户分层变化趋势
+- [ ] 检查 SOP 触达效果
+- [ ] 整理需要优化的高频问题
+
+### 🔍 竞品调研（每两周一次）
+- [ ] 搜索同行业最新动态
+- [ ] 分析竞争对手活动策略
+- [ ] 整理市场情报报告
+
+---
+
+## 🧪 Heartbeat State
+
+记录最近一次检查的时间戳：
+
+```json
+{
+  "lastCheck": {
+    "dailyRoutine": null,
+    "weeklyReview": null,
+    "competitorResearch": null
+  },
+  "nextScheduled": {
+    "dailyRoutine": "2026-04-23 09:00",
+    "weeklyReview": "2026-04-28 10:00"
+  }
+}
 ```
+
+---
+
+## 📝 备注
+
+- **优先级：** 每日晨检 > 每周复盘 > 竞品调研
+- **触发方式：** 心跳消息匹配时自动执行，或 cron 定时任务触发
+- **输出形式：** 汇总成报告发送到群聊或单独汇报

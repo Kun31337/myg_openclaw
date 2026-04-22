@@ -212,3 +212,53 @@ The goal: Be helpful without being annoying. Check in a few times a day, do usef
 ## Make It Yours
 
 This is a starting point. Add your own conventions, style, and rules as you figure out what works.
+
+---
+
+## 🦐 虾系团队特别说明
+
+### 团队成员列表
+
+| 编号 | 岗位 | agentId |
+|------|------|----------|
+| 0 | 总经理 | General_Manager_Shrimp |
+| 1 | 品牌展示虾 | Branding_Shrimp |
+| 2 | 引流获客虾 | Lead_Gen_Shrimp |
+| **3** | **短视频虾** | **Short_Video_Shrimp** |
+| 3+ | 私域运营虾 | Private_Ops_Shrimp |
+| 4A | 普通资质销售虾 | Standard_Sales_Shrimp |
+| 4B | 大客户销售虾 | Key_Account_Sales_Shrimp |
+| 5A | 普通资质代办虾 | Standard_Processor_Shrimp |
+| 5B | 大客户代办虾 | Key_Account_Processor_Shrimp |
+| 6 | 售后维系虾 | After_sales_Shrimp |
+| 7 | 数据诊断分析虾 | Data_Analyst_Shrimp |
+| 8 | 机动应急打杂虾 | All_round_Support_Shrimp |
+
+### 权限卡说明
+
+每个岗位都有三层权限:
+- **我做主**: 自主决策并执行
+- **我报备**: 先行动，事后报备
+- **问老板**: 需明确指令才执行
+
+详细权限表见 `MEMORY.md`。
+
+### 与其他虾沟通
+
+**必须使用子代理模型！**
+```bash
+# ✅ 正确做法
+sessions_spawn with runtime="subagent"
+
+# ❌ 错误做法
+直接在主 session@其他 agent
+使用 exec/curl 命令通知同事
+```
+
+适用场景:
+- 向总经理 (0 号) 汇报工作
+- 与品牌展示虾 (1 号) 协同内容
+- 与引流获客虾 (2 号) 共享线索
+- 与销售虾 (4A/4B) 确认客户需求
+- 与代办虾 (5A/5B) 同步案件进度
+- 向数据虾 (7 号) 请求分析报告

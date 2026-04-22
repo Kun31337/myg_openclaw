@@ -192,3 +192,84 @@
 - **功能**: 集成 10 个免费搜索引擎（Baidu、Bing CN/INT、360、Sogou、WeChat、Toutiao 等）
 - **适用场景**: 国内网站信息搜索
 - **备注**: 精简版移除了部分海外不可访问的引擎
+
+---
+
+## 🌐 Browser Automation 工具（2026-04-22）
+
+**技能名称**: `agent-browser` (ClawDBot)
+
+- **目录路径**: `/Users/zhu/.openclaw/workspace/skills/agent-browser-clawdbot`
+- **核心能力**: 无头浏览器自动化，使用 Accessibility Tree + Ref-based element selection
+- **最佳实践**: 总是用 `snapshot -i --json`, 支持 Session 隔离，支持 State Persistence
+- **学习记录**: 详见 `memory/browser-clawdbot-learning.md`
+
+---
+
+## 🧠 Self-Improving Proactive Agent（2026-04-22）
+
+**技能目录**: `/Users/zhu/.openclaw/workspace/skills/self-improving-proactive-agent`
+
+**核心理念**: One skill, two layers — 不只是记得更好，而是操作得更好。
+
+### 状态存储
+```
+~/self-improving/    # 持久化学习（纠正、偏好、教训）
+~/proactivity/       # 主动执行状态（session-state.md 四字段）
+```
+
+### Session State 四字段
+1. `current objective` - 当前目标
+2. `last confirmed decision` - 最后确认决定
+3. `blocker or open question` - 阻碍/问题
+4. `next useful move` - 下一步有用行动
+
+### 原则
+- ✅ **学习来源**: 明确纠正、持久偏好、重复成功、反思
+- ❌ **不学**: 沉默、感觉、一次性指令
+- 🔒 **边界**: 发消息/花钱/删数据/公开发布/替他人承诺必须询问
+- 🔄 **恢复流程**: 先读 memory → session state → working buffer → 再问缺失部分
+
+### Heartbeat 规则
+- 只发送有价值消息（有变化、需决策、准备好草案）
+- 沉默当：没变化、信号弱、只是在重复旧信息
+
+**学习记录**: 详见 `memory/self-improving-proactive-learning.md`
+
+---
+
+## 🔍 Skill Finder (中文)（2026-04-22）
+
+**技能目录**: `/Users/zhu/.openclaw/workspace/skills/skill-finder-cn`  
+**触发词**: 找 skill、find skill、搜索 skill
+
+**功能**: 帮助用户发现和安装 ClawHub Skills
+
+### 核心命令
+```bash
+clawhub search "<关键词>"      # 搜索 skills
+clawhub inspect <name>         # 查看详情
+clawhub install <name>         # 安装
+clawhub list                   # 查看已安装
+```
+
+### 关键步骤：安装后验证 ✅
+```bash
+ls ~/.openclaw/workspace/skills/<skill-name>/SKILL.md
+```
+
+### 工作流程
+1. 理解需求 → 2. 提取关键词 → 3. 搜索 → 4. 推荐（含下载量/stars）→ 5. 安装 → 6. **验证成功**
+
+### 输出格式
+显示：名称 + 描述 + 下载量 + Stars + 是否已安装
+
+**学习记录**: 详见 `memory/skill-finder-cn-learning.md`
+
+---
+
+## 💬 跨虾通信规则（2026-04-22）
+
+与其他 agent 进行通信时，**必须使用子代理模式** (`runtime="subagent"` 或 `sessions_send`)，确保任务隔离和清晰传递。
+
+可用 agent 列表: General_Manager_Shrimp, Branding_Shrimp, Short_Video_Shrimp, Private_Ops_Shrimp, Standard_Sales_Shrimp, Key_Account_Sales_Shrimp, Standard_Processor_Shrimp, Key_Account_Processor_Shrimp, After_sales_Shrimp, Data_Analyst_Shrimp, All_round_Support_Shrimp

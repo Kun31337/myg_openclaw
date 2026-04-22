@@ -373,8 +373,410 @@
 
 ## 📌 工具使用规范
 
-### 联网搜索技能
+### 1. 联网搜索技能
 - **必用技能**: `multi-search-engine-simple`
 - **技能目录**: `/Users/zhu/.openclaw/workspace/skills/multi-search-engine-simple`
 - **适用范围**: 所有需要联网搜索信息的场景
 - **执行要求**: 任何人进行联网搜索时，必须使用此技能，不得替代
+
+---
+
+### 2. 浏览器自动化技能 (agent-browser)
+**目录**: `/Users/zhu/.openclaw/workspace/skills/agent-browser-clawdbot`
+
+#### 何时使用
+✅ **使用 agent-browser 当:**
+- 自动化多步骤工作流
+- 需要确定的元素选择（ref-based）
+- 性能要求高
+- 处理复杂单页应用 (SPA)
+- 需要会话隔离
+
+❌ **使用内置 browser 工具当:**
+- 需要截图/PDF 进行分析
+- 需要视觉检查
+- 需要浏览器扩展集成
+
+#### 核心工作流程
+```bash
+# 1. 导航 + 快照
+agent-browser open <url>
+agent-browser snapshot -i --json
+
+# 2. 通过 ref 交互
+agent-browser click @e2
+agent-browser fill @e3 "text"
+
+# 3. 页面变化后重新快照
+agent-browser snapshot -i --json
+```
+
+#### 关键命令
+
+**导航:**
+```bash
+agent-browser open <url>
+agent-browser back | forward | reload | close
+```
+
+**快照（务必使用 -i --json）:**
+```bash
+agent-browser snapshot -i --json          # 交互式元素，JSON 输出
+agent-browser snapshot -i -c -d 5 --json  # 紧凑模式，深度限制
+agent-browser snapshot -s "#main" -i      # 限定选择器范围
+```
+
+**交互（基于 ref）:**
+```bash
+agent-browser click @e2                  # 点击
+agent-browser fill @e3 "text"            # 填充文本框
+agent-browser type @e3 "text"             # 键入文本
+agent-browser hover @e4                  # 悬停
+agent-browser check @e5 | uncheck @e5    # 复选框
+agent-browser select @e6 "value"         # 下拉选择
+agent-browser press "Enter"              # 按键
+agent-browser scroll down 500            # 滚动
+agent-browser drag @e7 @e8               # 拖拽
+```
+
+**获取信息:**
+```bash
+agent-browser get text @e1 --json        # 获取文本
+agent-browser get html @e2 --json        # 获取 HTML
+agent-browser get value @e3 --json       # 获取值
+agent-browser get attr @e4 "href" --json # 获取属性
+agent-browser get title --json           # 标题
+agent-browser get url --json             # URL
+agent-browser get count ".item" --json   # 元素计数
+```
+
+**状态检查:**
+```bash
+agent-browser is visible @e2 --json      # 可见性
+agent-browser is enabled @e3 --json      # 是否启用
+agent-browser is checked @e4 --json      # 是否选中
+```
+
+**等待:**
+```bash
+agent-browser wait @e2                    # 等待元素
+agent-browser wait 1000                   # 等待毫秒
+agent-browser wait --text "Welcome"       # 等待文本
+agent-browser wait --url "**/dashboard"   # 等待 URL
+agent-browser wait --load networkidle     # 等待网络空闲
+agent-browser wait --fn "window.ready === true"  # 自定义函数
+```
+
+**会话管理（隔离浏览器）:**
+```bash
+agent-browser --session admin open site.com
+agent-browser --session user open site.com
+agent-browser session list
+# 或通过环境变量：AGENT_BROWSER_SESSION=admin agent-browser ...
+```
+
+**状态持久化（记住登录态）:**
+```bash
+agent-browser state save auth.json        # 保存 cookies/storage
+agent-browser state load auth.json        # 加载 (跳过登录)
+```
+
+**截图 & PDF:**
+```bash
+agent-browser screenshot page.png         # 截图
+agent-browser screenshot --full page.png  # 全页截图
+agent-browser pdf page.pdf                # 生成 PDF
+```
+
+**标签页 & iframe:**
+```bash
+agent-browser tab new https://example.com
+agent-browser tab 2                       # 切换到标签页 2
+agent-browser frame @e5                   # 进入 iframe
+agent-browser frame main                  # 返回主文档
+```
+
+#### 最佳实践
+1. **始终使用 `-i` 标志** - 只关注可交互元素
+2. **始终使用 `--json`** - 便于解析
+3. **等待稳定性** - `agent-browser wait --load networkidle`
+4. **保存认证状态** - 用 `state save/load` 跳过登录流程
+5. **使用会话** - 隔离不同的浏览器上下文
+6. **调试时用 `--headed`** - 可视化看到操作过程
+
+#### Snapshot JSON 格式示例
+```json
+{
+  "success": true,
+  "data": {
+    "snapshot": "...",
+    "refs": {
+      "e1": {"role": "heading", "name": "Example Domain"},
+      "e2": {"role": "button", "name": "Submit"},
+      "e3": {"role": "textbox", "name": "Email"}
+    }
+  }
+}
+```
+
+---
+
+### 3. 自我改进型主动代理技能 (self-improving-proactive-agent)
+**目录**: `/Users/zhu/.openclaw/workspace/skills/self-improving-proactive-agent`
+
+#### 🧠 核心理念
+一个技能，两层能力：
+- **自我改进**: 从纠正中学习、反思和重复成功
+- **主动推进**: 保持工作状态、快速恢复上下文、持续推动下一步行动
+
+#### 何时使用
+✅ 当你希望代理不仅记得更好，而且运作得更好的场景：
+- 用户纠正你或声明持久偏好
+- 任务多步骤或容易偏离
+- 上下文恢复很重要
+- 后续跟进和心跳行为应随时间改进
+- 需要一个统一的 behavioral 模型
+
+#### 存储结构
+```
+~/self-improving/
+├── memory.md               # HOT: 已确认的持久规则和偏好
+├── corrections.md          # 最近的纠正和可复用的经验教训
+├── index.md                # 存储索引
+├── heartbeat-state.md      # 维护标记
+├── projects/               # 项目特定学习
+├── domains/                # 领域特定学习
+└── archive/                # 冷存储
+
+~/proactivity/
+├── memory.md               # 激活和边界规则
+├── session-state.md        # 当前目标、决策、阻塞点、下一步
+├── heartbeat.md            # 轻量级循环跟进
+├── patterns.md             # 可复用的主动成就
+├── log.md                  # 最近的主动行动
+└── memory/
+    └── working-buffer.md   # 易失性工作缓冲
+```
+
+#### 核心原则
+
+**1. 从明确证据中学习**
+✅ **学习来源:**
+- 用户的直接纠正
+- 明确的偏好声明
+- 重复成功的 workflow
+- 有意义的自我反思
+
+❌ **不学习的来源:**
+- 沉默
+- 模糊的感觉
+- 一次性上下文指令
+- 未经验证的假设
+
+**2. 推动下一个有用动作**
+- 寻找缺失的步骤、停滞的阻塞点和明显的后续操作
+- 优先提供草稿、检查、补丁和准备好的选项
+- 价值不高时保持安静
+
+**3. 将信息路由到正确的位置**
+- 持久经验 → `~/self-improving/`
+- 活跃任务状态 → `~/proactivity/session-state.md`
+- 易失性线索 → `~/proactivity/memory/working-buffer.md`
+
+**4. 先恢复再询问**
+在让用户重新陈述之前：
+1. 读取 HOT self-improving 记忆
+2. 读取 proactive stable memory
+3. 读取 session state
+4. 必要时读取 working buffer
+5. 只为缺失的增量提问
+
+**5. 验证实现，而不仅仅是意图**
+如果改变了工作原理：
+- 改变真实机制，而不只是措辞
+- 从用户角度测试结果
+- 然后才报告成功
+
+**6. 在严格边界内保持主动性**
+⚠️ **必须事先询问：**
+- 发送消息或联系他人
+- 花钱
+- 删除数据
+- 公开操作
+- 为他人承诺或安排日程
+
+#### 学习信号
+
+**纠正 (Corrections)**
+示例：
+- "用 X，不要用 Y"
+- "那是错的"
+- "停止那样做"
+
+行动：
+- 简洁记录到 corrections
+- 重复出现或确认后升级到 HOT memory
+
+**偏好 (Preferences)**
+示例：
+- "总是为我做 X"
+- "永不 Y"
+- "这个项目用 Z"
+
+行动：
+- 如果是持久的，添加到 HOT memory 或对应的 domain/project 文件
+
+**反思 (Reflections)**
+有意义的工作后记录：
+```
+CONTEXT: [任务]
+REFLECTION: [发生了什么]
+LESSON: [下次要改变的]
+```
+
+**主动成就 (Proactive wins)**
+如果一个主动操作反复有帮助：
+- 记录到 `~/proactivity/log.md`
+- 推广到 `~/proactivity/patterns.md`
+
+#### Heartbeat 行为规范
+Heartbeat 应该：
+- 重新检查承诺的后续事项
+- 回顾停滞的阻塞点
+- 检测缺失的下一步
+- 只在有价值时才显示准备好的建议
+- 执行学习维护但不 spam 用户
+
+**只发送消息当：**
+- 有变化发生
+- 需要决策
+- 准备好了草稿/建议
+- 等待有实际成本
+
+**保持安静当：**
+- 无变化
+- 信号微弱
+- 消息只会重复旧信息
+
+#### 晋升/衰减规则
+
+**Self-improving memory:**
+- 7 天内重复 3 次 → 升级为 HOT
+- 30 天未使用 → 降级为 WARM
+- 90 天未使用 → 归档
+- 未经询问不得删除已确认的偏好
+
+**Proactive patterns:**
+- 只保留反复创造价值的操作
+- 移除过时或嘈杂的模式
+- 有用性胜过聪明
+
+#### 范围与边界
+
+✅ **此技能只做：**
+- 维护本地学习和主动状态
+- 通过纠正、反思和重复成功改进行为
+- 支持恢复和心跳后续
+- 提议工作区集成（当用户想要时）
+
+❌ **此技能绝不：**
+- 从沉默推断持久规则
+- 发送消息、花钱、删除数据或做出承诺（无批准）
+- 在 memory 文件中存储凭证或机密
+- 未经请求重写无关文件
+
+---
+
+### 4. Skill 查找器 (skill-finder-cn)
+**目录**: `/Users/zhu/.openclaw/workspace/skills/skill-finder-cn`
+**触发词**: 找 skill、find skill、搜索 skill、有什么 skill 可以...
+
+#### 🔍 功能
+帮助用户发现和安装 ClawHub 上的 Skills。
+
+#### 使用场景
+当用户问：
+- "有什么 skill 可以帮我...？"
+- "找一个能做 X 的 skill"
+- "有没有 skill 可以..."
+- "我需要一个能...的 skill"
+
+#### 核心命令
+
+**搜索 Skills:**
+```bash
+clawhub search "<用户需求>"
+```
+
+**查看详情:**
+```bash
+clawhub inspect <skill-name>
+```
+
+或 API 查询 stats:
+```bash
+curl "https://clawhub.ai/api/v1/skills/<skill-name>" | jq '.skill.stats'
+```
+
+**安装 Skill:**
+```bash
+clawhub install <skill-name>
+```
+
+**验证安装:**
+```bash
+ls ~/.openclaw/workspace/skills/<skill-name>/SKILL.md
+# 文件存在 = 安装成功
+# 文件不存在 = 安装失败
+```
+
+**检查已安装的 Skills:**
+```bash
+clawhub list
+# 或
+ls ~/.openclaw/workspace/skills/
+```
+
+#### 工作流程
+```
+1. 理解用户需求
+2. 提取关键词
+3. 搜索 ClawHub
+4. 列出相关 Skills（含下载量/stars）
+5. 推荐最合适的 Skill
+6. 安装后验证是否成功
+```
+
+#### 输出格式
+搜索结果应包含：
+- Skill 名称
+- 简短描述（中文）
+- 下载量
+- Stars 数
+- 是否已安装
+
+**示例输出:**
+```
+🔍 "时间管理" 搜索结果：
+
+1. time-management-2
+   描述：有效管理时间，避免过度工作
+   下载：1,234 | Stars: 15 | ✅ 已安装
+
+2. productivity
+   描述：生产力系统，包含目标/任务/习惯
+   下载：5,678 | Stars: 42 | ❌ 未安装
+   → 推荐安装
+
+安装命令：clawhub install productivity
+安装后验证：ls ~/.openclaw/workspace/skills/productivity/SKILL.md
+```
+
+---
+
+### 5. 🚨 跨虾通信规范
+
+#### ⚠️ 重要规则
+- **与其他龙虾岗位通信时，必须只使用子代理模型 (subagent)**
+- 不得在主会话中直接与其他虾的 agentId 进行复杂交互
+- 所有跨岗位协作通过 `sessions_spawn` (runtime="subagent") 或 `sessions_send` 执行

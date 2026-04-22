@@ -1,0 +1,2 @@
+{"type":"session","version":3,"id":"1723b881-df76-4740-aeb6-c4e567d0df83","timestamp":"2026-04-22T08:30:27.190Z","cwd":"/"}
+{"type":"message","id":"8454c855","parentId":null,"timestamp":"2026-04-22T08:30:27.191Z","message":{"role":"assistant","content":[{"type":"text","text":"你好！这是通过 OpenClaw 发送的消息示例 🤖"}],"api":"openai-responses","provider":"openclaw","model":"delivery-mirror","usage":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"totalTokens":0,"cost":{"input":0,"output":0,"cacheRead":0,"cacheWrite":0,"total":0}},"stopReason":"stop","timestamp":1776846627175}}

@@ -195,4 +195,159 @@
 
 ---
 
+### 🌐 Headless Browser Automation - agent-browser
+
+- **技能目录：** `/Users/zhu/.openclaw/workspace/skills/agent-browser-clawdbot`
+- **核心命令：** `agent-browser`
+- **适用场景：**
+  - 多步骤自动化工作流
+  - 需要确定性元素选择（基于 accessibility tree refs）
+  - 性能敏感任务
+  - 处理复杂 SPA 应用
+  - 需要会话隔离（多个并行浏览器实例）
+- **与内置 browser 工具的区别：**
+  - 用 `agent-browser`：需要确定性和性能、复杂交互流程
+  - 用 `browser`：需要截图/PDF 分析、视觉检查、插件集成
+- **核心工作流程：**
+  1. `agent-browser open <url>` - 打开页面
+  2. `agent-browser snapshot -i --json` - 获取交互式元素快照（JSON + refs）
+  3. 使用 refs 交互：`click @e2`, `fill @e3 "text"`, `type @e3 "text"`
+  4. 页面变化后重新 snapshot
+- **关键特性：**
+  - Ref-based 元素选择 (@e1, @e2...)
+  - Session 隔离 (`--session admin/user`)
+  - 状态持久化 (`state save/load auth.json`)
+  - 等待机制 (`wait --load networkidle`, `wait --text "Welcome"`)
+  - 截图/PDF (`screenshot`, `pdf`)
+  - 网络控制 (`network route`)、Cookies 管理
+
+---
+
+### 🧠 Self-Improving Proactive Agent（自改进主动型代理）
+
+- **技能目录：** `/Users/zhu/.openclaw/workspace/skills/self-improving-proactive-agent`
+- **核心理念：** 既能自我学习改进，又能主动推进工作
+
+#### 双层级架构
+
+```
+~/self-improving/          # 学习能力层
+├── memory.md              # HOT: 确认的规则和偏好
+├── corrections.md         # 最近的纠正和教训
+├── index.md               # 存储地图/主题索引
+├── heartbeat-state.md     # 维护标记
+├── projects/              # 项目级学习
+├── domains/               # 领域级学习
+└── archive/               # 冷存储
+
+~/proactivity/             # 主动性层
+├── memory.md              # 激活和边界规则
+├── session-state.md       # 当前目标、决策、阻碍、下一步
+├── heartbeat.md           # 轻量级重复跟进
+├── patterns.md            # 可重用的主动经验
+├── log.md                 # 最近主动行动
+└── memory/
+    └── working-buffer.md  # 长任务的脆弱上下文
+```
+
+#### 六大核心原则
+
+1. **从明确证据中学习** — 来自用户纠正、明确偏好、成功 workflow、自我反思
+   - ❌ 不要从不明确信号学：沉默、猜测、一次性指令
+
+2. **推动下一个有用动作** — 寻找缺失步骤、阻塞点、明显后续
+   - 优先产出草稿、检查、补丁、准备选项
+
+3. **信息路由到正确位置** — durable → self-improving；task state → session-state；volatile → working-buffer
+
+4. **提问前先恢复上下文** — 读 HOT 记忆→stable 记忆→session-state→working buffer→问缺失部分
+
+5. **验证实现而非意图** — 改变真实机制、测试结果、再报告成功
+
+6. **硬性边界内的主动性** — 
+   - ✅ 可以自主：内部整理、组织、学习
+   - ❓ 需先问：发消息、花钱、删数据、公开行动、替人承诺
+
+#### 学习信号类型
+
+- **纠正 (Corrections)**："用 X，不用 Y" → 记到 corrections，反复后升级为 HOT
+- **偏好 (Preferences)**："永远为我做 X" → 如果 durable，加到 HOT 或 domain/project 文件
+- **反思 (Reflections)**：有意义工作后记录 CONTEXT/REFLECTION/LESSON
+- **主动经验 (Proactive wins)**：多次有帮助的主动行为 → log.md → patterns.md
+
+#### Heartbeat 行为准则
+
+- **要做**：检查承诺跟进、回顾阻塞点、发现缺失后续、只输出有准备的建议
+- **只发消息当**：有变化、需要决策、准备了草案/建议、等待有代价
+- **保持安静当**：无变化、信号弱、只是重复旧信息
+
+#### 记忆升降级规则
+
+- 同一内容 **7 天内出现 3 次** → 升级到 HOT
+- **30 天未用** → 降级为 WARM
+- **90 天未用** → 归档
+- 从未删除确认过的偏好（需先询问）
+
+---
+
+### 🔍 Skill Finder - 技能查找器
+
+- **技能目录：** `/Users/zhu/.openclaw/workspace/skills/skill-finder-cn`
+- **依赖工具：** `clawhub` CLI
+- **触发词：** "找 skill"、"find skill"、"搜索 skill"、"有什么 skill 可以..."
+- **功能：** 帮助用户发现和安装 ClawHub 上的 Skills
+
+#### 工作流程
+
+1. **理解用户需求** - 提取关键词
+2. **搜索 ClawHub** - `clawhub search "<用户需求>"`
+3. **查看详情** - 展示下载量/stars/是否已安装
+4. **推荐最合适的 Skill**
+5. **安装 Skill** - `clawhub install <skill-name>`
+6. **验证安装** - 检查 `~/.openclaw/workspace/skills/<skill-name>/SKILL.md` 是否存在
+
+#### 常用命令
+
+```bash
+# 搜索 Skills
+clawhub search "<关键词>"
+
+# 查看详情
+clawhub inspect <skill-name>
+
+# 安装 Skill
+clawhub install <skill-name>
+
+# 查看已安装的 Skills
+clawhub list
+ls ~/.openclaw/workspace/skills/
+
+# API 查询 stats
+curl "https://clawhub.ai/api/v1/skills/<skill-name>" | jq '.skill.stats'
+```
+
+#### 搜索结果格式
+
+```markdown
+🔍 "时间管理" 搜索结果：
+
+1. time-management-2
+   描述：有效管理时间，避免过度工作
+   下载：1,234 | Stars: 15 | ✅ 已安装
+
+2. productivity
+   描述：生产力系统，包含目标/任务/习惯
+   下载：5,678 | Stars: 42 | ❌ 未安装
+   → 推荐安装
+```
+
+---
+
+## 🦐 团队通信规范
+
+- **与其他虾通信：** 必须使用子代理模型（`sessions_spawn` with `runtime="subagent"`）
+- **用途：** 跨岗位协同、任务交接、信息同步
+
+---
+
 _Last updated: 2026-04-21_

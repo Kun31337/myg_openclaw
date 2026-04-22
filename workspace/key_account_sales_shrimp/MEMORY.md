@@ -162,3 +162,69 @@
 - **技能目录：** `/Users/zhu/.openclaw/workspace/skills/multi-search-engine-simple`
 - **适用范围：** 所有需要联网搜索信息的场景
 - **优先级：** 最高优先级的搜索工具
+
+### 浏览器自动化
+
+**技能：** `agent-browser` (🌐)
+- **技能目录：** `/Users/zhu/.openclaw/workspace/skills/agent-browser-clawdbot`
+- **CLI 命令：** `agent-browser`
+- **核心优势：** 
+  - 基于可访问性树的快照和引用选择，确定性元素定位
+  - 适合多步骤自动化工作流
+  - 支持会话隔离（session isolation）
+  - 性能优于内置 browser 工具
+
+#### 核心工作流
+```bash
+# 1. 打开页面 + 快照
+agent-browser open https://example.com
+agent-browser snapshot -i --json
+
+# 2. 根据 refs 交互
+agent-browser click @e2
+agent-browser fill @e3 "text"
+
+# 3. 页面变化后重新快照
+agent-browser snapshot -i --json
+```
+
+#### 常用命令速查
+| 操作 | 命令 |
+|------|------|
+| **导航** | `agent-browser open <url>` |
+| **快照** | `agent-browser snapshot -i --json`（总是用 `-i --json`） |
+| **点击** | `agent-browser click @e2` |
+| **填写表单** | `agent-browser fill @e3 "text"` |
+| **回车** | `agent-browser press "Enter"` |
+| **等待加载** | `agent-browser wait --load networkidle` |
+| **获取文本** | `agent-browser get text @e1 --json` |
+| **会话隔离** | `agent-browser --session admin open site.com` |
+| **保存状态** | `agent-browser state save auth.json` |
+| **截图/PDF** | `agent-browser screenshot page.png` / `pdf page.pdf` |
+
+#### 最佳实践
+1. **总是用 `-i --json`** - 只关注可交互元素，JSON 易解析
+2. **等待页面稳定** - `wait --load networkidle`
+3. **保存认证状态** - 避免重复登录 (`state save/load`)
+4. **使用会话** - 隔离不同浏览器上下文
+5. **调试时用 `--headed`** - 可视化看到操作过程
+
+#### 适用场景
+✅ **适合用 agent-browser：**
+- 多步骤网页自动化流程
+- 需要确定性的元素定位
+- 复杂 SPA 应用操作
+- 需要会话隔离（如同时测试管理员/用户视角）
+
+❌ **用内置 browser 工具：**
+- 需要截图/PDF 供分析
+- 需要视觉检查页面渲染效果
+- 需要浏览器扩展集成
+
+---
+
+## 记忆更新日志
+
+- **2026-04-22** 学习 `agent-browser` 技能并记录使用方法；要求联网搜索必须使用 `multi-search-engine-simple`
+- **2026-04-22** 学习 `self-improving-proactive-agent` 技能并记录核心原则
+- **2026-04-22** 学习 `skill-finder-cn` 技能并记录使用方法（ClawHub 技能搜索/安装工具）

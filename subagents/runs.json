@@ -1,4 +1,57 @@
 {
   "version": 2,
-  "runs": {}
+  "runs": {
+    "979df3f1-7b46-42b8-a635-3be18cfc118a": {
+      "runId": "979df3f1-7b46-42b8-a635-3be18cfc118a",
+      "childSessionKey": "agent:data_analyst_shrimp:subagent:9f107f04-8842-40d5-babe-293a44ab086b",
+      "controllerSessionKey": "agent:data_analyst_shrimp:feishu:group:oc_06bd0381650c08be8b7819c0e05e9e92",
+      "requesterSessionKey": "agent:data_analyst_shrimp:feishu:group:oc_06bd0381650c08be8b7819c0e05e9e92",
+      "requesterOrigin": {
+        "channel": "feishu",
+        "to": "chat:oc_06bd0381650c08be8b7819c0e05e9e92",
+        "accountId": "data_analyst_shrimp"
+      },
+      "requesterDisplayKey": "agent:data_analyst_shrimp:feishu:group:oc_06bd0381650c08be8b7819c0e05e9e92",
+      "task": "为以下岗位批量创建 IDENTITY.md、SOUL.md、AGENTS.md、TOOLS.md 四个文件：\n\n**3 号 · 短视频虾 (Short_Video_Shrimp)** 🎬\n- 核心职责：常规脚本/拍摄/剪辑、发布视频、回复评论、蹭热点涨粉\n- 我做主：日常内容创作和发布、小预算推广(<200 元)\n- 我报备：涉及老板出镜的视频、付费推广\n- 问老板：事件营销、KOL/KOC 合作、改变账号定位\n\n**3+ 号 · 私域运营虾 (Private_Ops_Shrimp)** 💬  \n- 核心职责：日常内容分发、客户打标签、高意向客户分配给销售\n- 我做主：社群日常运营、标签体系优化、自动化触达规则设置\n- 我报备：新的社群玩法、测试新话术\n- 问老板：全量客户促销、修改核心转化 SOP、群发促销信息\n\n**4A 号 · 普通资质销售虾 (Standard_Sales_Shrimp)** 💼\n- 核心职责：标准产品咨询、≥9 折报价逼单成交、唤醒沉睡客户\n- 我做主：标准销售流程执行、常规签约\n- 我报备：非标准合同、承诺非标服务\n- 问老板：低于 9 折报价、特殊加急、打包 3 项以上业务\n\n**4B 号 · 大客户销售虾 (Key_Account_Sales_Shrimp)** 👔\n- 核心职责：大客户沟通、需求挖掘、方案谈判\n- 我做主：大客户日常维护、协调内部资源（标准流程内）\n- 我报备：定制服务包申请、超出标准的赠品\n- 问老板：低于标准利润报价、长期战略协议、重大风险承诺\n\n**5A 号 · 普通资质代办虾 (Standard_Processor_Shrimp)** 📝\n- 核心职责：按 SOP 执行标准代办流程、更新进度、处理常规问题\n- 我做主：标准流程执行、常规材料问题处理\n- 我报备：政策模糊地带、材料重大瑕疵\n- 问老板：非 SOP 流程、免费加急、合规风险\n\n**5B 号 · 大客户代办虾 (Key_Account_Processor_Shrimp)** 🚀\n- 核心职责：复杂项目计划执行、跨部门协同、风险预判\n- 我做主：复杂项目执行、常规资源协调、提前 48h 预警延期\n- 我报备：进度延迟解释、非常规资源协调\n- 问老板：变更执行地图、启动应急预案、放弃任务\n\n**6 号 · 售后维系虾 (After_sales_Shrimp)** 🤝\n- 核心职责：回访、满意度调查、处理一般售后、引导转介绍\n- 我做主：常规回访、安抚情绪、引导转介绍\n- 我报备：升级为\"重大舆情\"的投诉、批量同类问题\n- 问老板：大额补偿(>500 元)、免单、公开平台曝光威胁\n\n**8 号 · 机动应急打杂虾 (All_round_Support_Shrimp)** 🔧\n- 核心职责：替补简单工作、日程提醒、待办检查、物资管理\n- 我做主：日常杂事处理、替补不超过 24 小时的工作\n- 我报备：代替其他岗位超 24 小时、发现流程漏洞\n- 问老板：突发高难度任务、备用资金>300 元、法律风险\n\n要求：\n1. 每个岗位创建完整目录：`shrimps/X_role_name/`\n2. 每个目录下创建 4 个 MD 文件（IDENTITY.md、SOUL.md、AGENTS.md、TOOLS.md）\n3. 内容格式要与已有岗位（0 号、1 号、2 号）保持一致\n4. 确保 emoji 使用一致\n5. 版本日期都写：2026-04-22",
+      "cleanup": "keep",
+      "expectsCompletionMessage": true,
+      "spawnMode": "run",
+      "label": "批量生成其他岗位 MD 文件",
+      "model": "custom-dashscope-aliyuncs-com/qwen3.5-flash",
+      "workspaceDir": "/Users/zhu/.openclaw/workspace/data_analyst_shrimp",
+      "runTimeoutSeconds": 0,
+      "createdAt": 1776850000216,
+      "startedAt": 1776850004856,
+      "sessionStartedAt": 1776850000216,
+      "accumulatedRuntimeMs": 0,
+      "cleanupHandled": false,
+      "retainAttachmentsOnKeep": false
+    },
+    "53d971a6-2863-49d4-81bc-0c020f9c271a": {
+      "runId": "53d971a6-2863-49d4-81bc-0c020f9c271a",
+      "childSessionKey": "agent:data_analyst_shrimp:subagent:96b56dd2-6b49-4dac-bcf6-80fe9226eea7",
+      "controllerSessionKey": "agent:data_analyst_shrimp:feishu:group:oc_06bd0381650c08be8b7819c0e05e9e92",
+      "requesterSessionKey": "agent:data_analyst_shrimp:feishu:group:oc_06bd0381650c08be8b7819c0e05e9e92",
+      "requesterOrigin": {
+        "channel": "feishu",
+        "to": "chat:oc_06bd0381650c08be8b7819c0e05e9e92",
+        "accountId": "data_analyst_shrimp"
+      },
+      "requesterDisplayKey": "agent:data_analyst_shrimp:feishu:group:oc_06bd0381650c08be8b7819c0e05e9e92",
+      "task": "为以下 7 个岗位分别创建 SOUL.md 和 AGENTS.md 两个文件（与已有的 0 号、1 号、2 号的格式保持一致）：\n\n目标目录：`/Users/zhu/.openclaw/workspace/data_analyst_shrimp/shrimps/`\n\n待生成的岗位：\n1. 3_short_video - 短视频虾 🎬\n2. 3_private_ops - 私域运营虾 💬  \n3. 4a_standard_sales - 普通资质销售虾 💼\n4. 4b_key_account_sales - 大客户销售虾 👔\n5. 5a_standard_processor - 普通资质代办虾 📝\n6. 5b_key_account_processor - 大客户代办虾 🚀\n7. 6_after_sales - 售后维系虾 🤝\n8. 8_all_round_support - 机动应急打杂虾 🔧\n\n要求：\n- SOUL.md：包含 Core Truths、Boundaries、Vibe、Continuity 四个部分，结合各岗位特点编写灵魂准则\n- AGENTS.md：使用标准模板，在开头添加\"我的角色定位\"说明，底部加上对应版本信息\n- 版本号统一写：2026-04-22\n- agentId 要与 Identity.md 中的对应\n- emoji 要与身份档案保持一致",
+      "cleanup": "keep",
+      "expectsCompletionMessage": true,
+      "spawnMode": "run",
+      "label": "批量生成 SHrimps 的 SOUL.md 和 AGENTS.md 文件",
+      "model": "custom-dashscope-aliyuncs-com/qwen3.5-flash",
+      "workspaceDir": "/Users/zhu/.openclaw/workspace/data_analyst_shrimp",
+      "runTimeoutSeconds": 0,
+      "createdAt": 1776850076580,
+      "startedAt": 1776850080832,
+      "sessionStartedAt": 1776850076580,
+      "accumulatedRuntimeMs": 0,
+      "cleanupHandled": false,
+      "retainAttachmentsOnKeep": false
+    }
+  }
 }

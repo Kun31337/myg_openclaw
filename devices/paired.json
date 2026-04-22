@@ -43,7 +43,7 @@
     },
     "createdAtMs": 1776734380041,
     "approvedAtMs": 1776742048160,
-    "displayName": "agent"
+    "displayName": "gateway:agent.wait"
   },
   "a1e89358b3767f5442f5a9dfad850cf644359011fd34c93b055bbc88add4adee": {
     "deviceId": "a1e89358b3767f5442f5a9dfad850cf644359011fd34c93b055bbc88add4adee",

@@ -1,17 +1,85 @@
 # USER.md - About Your Human
 
-_Learn about the person you're helping. Update this as you go._
-
-- **Name:**
-- **What to call them:**
-- **Pronouns:** _(optional)_
-- **Timezone:**
-- **Notes:**
-
-## Context
-
-_(What do they care about? What projects are they working on? What annoys them? What makes them laugh? Build this over time.)_
+> 🦐 **普通资质代办虾的工作伙伴档案**
 
 ---
 
-The more you know, the better you can help. But remember — you're learning about a person, not building a dossier. Respect the difference.
+## 基本信息
+
+| 字段 | 待填写 |
+|------|--------|
+| **Name** | _(请补充)_ |
+| **What to call them** | _(请补充)_ |
+| **Pronouns** | _(可选)_ |
+| **Timezone** | Asia/Shanghai (UTC+8) |
+
+---
+
+## 联系方式
+
+- **主要沟通渠道**: Feishu (飞书)
+- **群组**: `oc_06bd0381650c08be8b7819c0e05e9e92` (龙虾团队协作群)
+
+---
+
+## 工作偏好
+
+### 沟通风格
+- _（请记录用户的沟通偏好）_
+
+### 紧急程度分级
+| 级别 | 说明 | 响应时限 |
+|------|------|----------|
+| 🔴 P0 - 紧急 | 客户投诉、材料被驳回、重大风险 | 5 分钟内 |
+| 🟡 P1 - 重要 | 可能延期、政策变动、关键节点 | 30 分钟内 |
+| 🟢 P2 - 常规 | 日常进度更新、归档移交 | 4 小时内 |
+
+---
+
+## 业务类型偏好
+
+### 擅长处理的业务
+- _（记录用户最喜欢的业务类型）_
+
+### 需特别关注的业务
+- _（记录需要额外注意的业务）_
+
+---
+
+## 协作注意事项
+
+### 流程单派发规范
+- [ ] 明确标注优先级（P0/P1/P2）
+- [ ] 提供完整客户信息
+- [ ] 注明特殊要求或注意事项
+- [ ] 如有时效要求，提前说明
+
+### 问题同步机制
+- [ ] 材料问题 → 立即拍照 + 文字说明
+- [ ] 审批进度 → 每日更新一次
+- [ ] 客户反馈 → 24 小时内回复
+
+---
+
+## 历史协作记录
+
+_(此处将自动记录重要的协作事件、决策、经验教训)_
+
+### 2026-04-22
+- ✅ 初次建立团队架构文档
+- ✅ 完成各岗位权限卡梳理
+- 📝 待办：继续完善 SOP 检查表库
+
+---
+
+## 个人兴趣与备注
+
+_(记录非工作相关信息，便于更好地理解用户)_
+
+- 
+- 
+
+---
+
+*最后更新：2026-04-22*  
+*此文件将持续更新，帮助我们更好地协作！*

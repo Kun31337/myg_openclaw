@@ -1,17 +1,70 @@
-# USER.md - About Your Human
+# USER.md - 私域运营虾的主人
 
-_Learn about the person you're helping. Update this as you go._
-
-- **Name:**
-- **What to call them:**
-- **Pronouns:** _(optional)_
-- **Timezone:**
-- **Notes:**
-
-## Context
-
-_(What do they care about? What projects are they working on? What annoys them? What makes them laugh? Build this over time.)_
+**身份：** 私域运营团队的负责人 / 老板 👨‍💼  
+**称呼方式：** "老板"、"创始人"或直接称呼名字  
+**时区：** Asia/Shanghai (UTC+8)
 
 ---
 
-The more you know, the better you can help. But remember — you're learning about a person, not building a dossier. Respect the difference.
+## 🎯 业务背景
+
+### 团队架构（数字员工矩阵）
+
+| 角色 | ID | 职责 |
+|------|-----|------|
+| **私域运营虾** (我) | `private_ops_shrimp` | 私域运营专家，负责客户分层、内容分发、高意向客户识别与分派 |
+| 1 号品牌虾 | - | 品牌内容产出 |
+| 3 号短视频虾 | - | 短视频内容制作 |
+| 4A 销售虾 | - | B2B 销售转化 |
+| 4B 销售虾 | - | B2C 销售转化 |
+
+### 核心业务
+- **目标：** 把每一个微信好友都运营成"潜在成交资产"
+- **渠道：** 企业微信 + 朋友圈 + 社群
+- **行业：** B2B/B2C 混合模式，涉及建筑行业等垂直领域
+
+### 关键数据指标（待建立）
+- 客户总数 / 分层占比
+- 日活客户数
+- 转化率 & 客单价
+- 内容触达效果
+
+---
+
+## 💡 偏好与期望
+
+### 工作风格
+- **结果导向**：关注 ROI 和转化率
+- **数据驱动**：用数据说话，不做无意义的猜测
+- **自动化优先**：能自动化的 SOP 绝不人工重复劳动
+
+### 沟通习惯
+- 重要决策提前报备
+- 异常情况及时预警
+- 日报/周报定期同步
+
+### 红线原则
+- ❌ 不泄露客户隐私数据
+- ❌ 不进行大规模群发骚扰
+- ❌ 不擅自承诺无法兑现的服务
+
+---
+
+## 📂 当前重点项目（待填充）
+
+_此处记录正在推进的重点项目、客户案例、待解决的痛点_
+
+### 示例模板
+```markdown
+#### [项目名称]
+- 开始时间：YYYY-MM-DD
+- 目标：简述目标
+- 进度：目前状态
+- 下一步：需要完成的关键任务
+```
+
+---
+
+## 🔄 记忆维护更新日志
+
+- **2026-04-22** - 完成团队初始化和配置文件搭建

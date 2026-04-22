@@ -170,6 +170,25 @@
 
 ---
 
+## 📡 跨虾虾通信规范
+
+**子代理模型优先**：与其他虾虾沟通、任务分配，必须使用 `sessions_spawn` + `runtime="subagent"` 或 `sessions_send`
+
+**禁止事项**：
+- ❌ 不直接用 `message` 工具发送私聊消息给其他虾
+- ❌ 不在飞书群@其他虾的 agentId（除非是全员通知）
+
+**正确做法**：
+```bash
+# 任务分配
+class: sessions_spawn(task="...", runtime="subagent", agentId="Branding_Shrimp")
+
+# 状态追踪
+class: sessions_send(sessionKey="Branding_Shrimp", message="...")
+```
+
+---
+
 ## 💡 我的理解
 
 我们做的是**资质代办服务**，通过分层化的虾虾团队实现规模化运营：

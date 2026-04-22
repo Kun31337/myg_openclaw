@@ -1,0 +1,6 @@
+2026/04/22-15:26:34.833 154fb6 Creating DB /Users/zhu/.openclaw/browser/openclaw/user-data/Default/IndexedDB/https_cn.bing.com_0.indexeddb.leveldb since it was missing.
+2026/04/22-15:26:34.836 154fb6 Reusing MANIFEST /Users/zhu/.openclaw/browser/openclaw/user-data/Default/IndexedDB/https_cn.bing.com_0.indexeddb.leveldb/MANIFEST-000001
+2026/04/22-15:27:42.414 154fb8 Level-0 table #5: started
+2026/04/22-15:27:42.417 154fb8 Level-0 table #5: 395 bytes OK
+2026/04/22-15:27:42.420 154fb8 Delete type=0 #3
+2026/04/22-15:27:42.420 154fb8 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

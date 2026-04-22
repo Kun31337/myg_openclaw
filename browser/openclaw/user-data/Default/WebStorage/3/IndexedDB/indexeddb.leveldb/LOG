@@ -1,0 +1,50 @@
+2026/04/22-14:07:06.404 154fb6 Creating DB /Users/zhu/.openclaw/browser/openclaw/user-data/Default/WebStorage/3/IndexedDB/indexeddb.leveldb since it was missing.
+2026/04/22-14:07:06.406 154fb6 Reusing MANIFEST /Users/zhu/.openclaw/browser/openclaw/user-data/Default/WebStorage/3/IndexedDB/indexeddb.leveldb/MANIFEST-000001
+2026/04/22-14:12:21.976 154fb8 Level-0 table #5: started
+2026/04/22-14:12:21.984 154fb8 Level-0 table #5: 1195809 bytes OK
+2026/04/22-14:12:21.994 154fb8 Delete type=0 #3
+2026/04/22-14:18:58.693 154fb8 Level-0 table #7: started
+2026/04/22-14:18:58.701 154fb8 Level-0 table #7: 992306 bytes OK
+2026/04/22-14:18:58.702 154fb8 Delete type=0 #4
+2026/04/22-14:20:37.683 154fb8 Compacting 1@1 + 1@2 files
+2026/04/22-14:20:37.691 154fb8 Generated table #8@1: 1696 keys, 210179 bytes
+2026/04/22-14:20:37.691 154fb8 Compacted 1@1 + 1@2 files => 210179 bytes
+2026/04/22-14:20:37.692 154fb8 compacted to: files[ 0 0 1 0 0 0 0 ]
+2026/04/22-14:20:37.693 154fb8 Delete type=2 #7
+2026/04/22-14:20:37.693 154fb8 Delete type=2 #5
+2026/04/22-14:26:52.225 154fb8 Level-0 table #10: started
+2026/04/22-14:26:52.234 154fb8 Level-0 table #10: 1087428 bytes OK
+2026/04/22-14:26:52.235 154fb8 Delete type=0 #6
+2026/04/22-14:27:12.033 154fb8 Compacting 1@1 + 1@2 files
+2026/04/22-14:27:12.039 154fb8 Generated table #11@1: 2172 keys, 274639 bytes
+2026/04/22-14:27:12.039 154fb8 Compacted 1@1 + 1@2 files => 274639 bytes
+2026/04/22-14:27:12.040 154fb8 compacted to: files[ 0 0 1 0 0 0 0 ]
+2026/04/22-14:32:25.277 154fb8 Level-0 table #13: started
+2026/04/22-14:32:25.285 154fb8 Level-0 table #13: 1110069 bytes OK
+2026/04/22-14:32:25.286 154fb8 Delete type=2 #10
+2026/04/22-14:32:25.286 154fb8 Delete type=2 #8
+2026/04/22-14:32:25.286 154fb8 Delete type=0 #9
+2026/04/22-14:32:27.265 154fb8 Compacting 1@1 + 1@2 files
+2026/04/22-14:32:27.272 154fb8 Generated table #14@1: 2276 keys, 308638 bytes
+2026/04/22-14:32:27.272 154fb8 Compacted 1@1 + 1@2 files => 308638 bytes
+2026/04/22-14:32:27.277 154fb8 compacted to: files[ 0 0 1 0 0 0 0 ]
+2026/04/22-14:32:27.277 154fb8 Delete type=2 #13
+2026/04/22-14:32:27.277 154fb8 Delete type=2 #11
+2026/04/22-14:40:11.805 154fb8 Level-0 table #16: started
+2026/04/22-14:40:11.813 154fb8 Level-0 table #16: 1173635 bytes OK
+2026/04/22-14:40:11.815 154fb8 Delete type=0 #12
+2026/04/22-14:42:07.393 154fb6 Compacting 1@1 + 1@2 files
+2026/04/22-14:42:07.402 154fb6 Generated table #17@1: 2276 keys, 287196 bytes
+2026/04/22-14:42:07.402 154fb6 Compacted 1@1 + 1@2 files => 287196 bytes
+2026/04/22-14:42:07.403 154fb6 compacted to: files[ 0 0 1 0 0 0 0 ]
+2026/04/22-14:42:07.403 154fb6 Delete type=2 #14
+2026/04/22-14:42:07.403 154fb6 Delete type=2 #16
+2026/04/22-14:47:12.055 154fb6 Level-0 table #19: started
+2026/04/22-14:47:12.063 154fb6 Level-0 table #19: 1043917 bytes OK
+2026/04/22-14:47:12.066 154fb6 Delete type=0 #15
+2026/04/22-14:47:12.080 154fb8 Compacting 1@1 + 1@2 files
+2026/04/22-14:47:12.085 154fb8 Generated table #20@1: 2292 keys, 285692 bytes
+2026/04/22-14:47:12.085 154fb8 Compacted 1@1 + 1@2 files => 285692 bytes
+2026/04/22-14:47:12.086 154fb8 compacted to: files[ 0 0 1 0 0 0 0 ]
+2026/04/22-14:47:12.086 154fb8 Delete type=2 #17
+2026/04/22-14:47:12.086 154fb8 Delete type=2 #19

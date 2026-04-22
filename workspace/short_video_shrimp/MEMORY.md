@@ -221,3 +221,291 @@
 - **适用范围**: 所有联网搜索场景
 - **执行人**: 所有人
 - **备注**: 此为强制规则，不可使用其他搜索工具替代
+
+## 浏览器自动化技能
+
+**技能名称**：`agent-browser`
+- **目录位置**: `/Users/zhu/.openclaw/workspace/skills/agent-browser-clawdbot`
+- **用途**: 无头浏览器自动化，用于复杂网页操作和多步骤工作流
+- **核心命令**:
+  - `agent-browser open <url>` - 打开页面
+  - `agent-browser snapshot -i --json` - 获取可交互元素快照（务必加 `-i --json`）
+  - `agent-browser click @ref`, `agent-browser fill @ref "text"` - 基于 ref 的交互
+  - `agent-browser --session <name>` - 会话隔离
+- **最佳实践**:
+  1. 始终用 `-i --json` flag
+  2. 用 `wait --load networkidle` 等页面稳定
+  3. 保存认证状态 `state save/load` 跳过登录
+  4. 多任务用不同 session 隔离
+- **何时使用**: 需要确定性元素选择、多步骤工作流、性能敏感场景
+
+---
+
+## 自我提升主动代理技能
+
+**技能名称**：`self-improving-proactive-agent`
+- **目录位置**: `/Users/zhu/.openclaw/workspace/skills/self-improving-proactive-agent`
+- **homepage**: https://github.com/Yueyanc/self-improving-proactive-agent
+- **emoji**: 🧠
+- **用途**: 统一的自我提升和主动代理能力，从纠正中学习、保持活跃状态、快速恢复上下文、持续推进工作
+
+### 两大核心层
+
+**自我提升 (Self-improving)**:
+- 从纠正中学习 → 记录到 `corrections.md`
+- 从明确的偏好中学习 → 记录到 `memory.md`
+- 从重复的成功工作流中学习
+- 有意义的工作后进行反思日志
+
+**主动代理 (Proactive)**:
+- 保持动量 → 检查缺失步骤、停滞的阻塞点
+- 准备下一步行动 → 草稿、检查、补丁、准备好的选项
+- 价值弱时保持安静
+
+### 文件结构
+
+```
+~/self-improving/
+├── memory.md              # HOT: 确认的持久规则和偏好
+├── corrections.md         # 最近的纠正和待推广的经验教训
+├── index.md               # 存储映射/主题索引
+├── heartbeat-state.md     # 维护标记
+├── projects/              # 项目专用学习
+└── domains/               # 领域专用学习
+
+~/proactivity/
+├── memory.md              # 稳定的激活和边界规则
+├── session-state.md       # 当前目标、决策、阻塞点、下一步
+├── heartbeat.md           # 轻量级 recurring follow-through
+├── patterns.md            # 可重用的主动成功模式
+└── memory/working-buffer.md  # 脆弱任务的临时缓存
+```
+
+### 核心原则
+
+1. **从明确证据学习**:
+   - ✅ 直接用户纠正、明确偏好、重复成功的流程
+   - ❌ 沉默、单纯的感觉、一次性上下文指令、未经验证的假设
+
+2. **推进有用的下一步**:
+   - 寻找缺失步骤、停滞阻塞点
+   - 优先草稿、检查、补丁、准备的选项
+   - 价值低时保持安静
+
+3. **信息路由到正确位置**:
+   - 持久经验 → `~/self-improving/`
+   - 活跃任务状态 → `~/proactivity/session-state.md`
+   - 临时缓存 → `~/proactivity/memory/working-buffer.md`
+
+4. **提问前先恢复**:
+   - 读 HOT self-improving 记忆
+   - 读 proactive stable memory
+   - 读 session state
+   - 必要时读 working buffer
+   - 只为缺失的 delta 询问
+
+5. **验证实现而非意图**:
+   - 改变真实机制，不只是措辞
+   - 从用户角度测试结果
+   - 然后报告成功
+
+6. **在硬边界内保持主动**:
+   - 需先询问：发消息/联系、花钱、删除数据、公开行动、为他人承诺/ scheduling
+
+### 学习信号
+
+**纠正**:
+- "用 X，不用 Y"
+- "那是错的"
+- "停止做那个"
+→ 记录到 corrections，重复或确认后推广到 memory
+
+**偏好**:
+- "总是为我做 X"
+- "永远不做 Y"
+- "这个项目用 Z"
+→ 持久的话添加到 HOT memory 或匹配的 domain/project 文件
+
+**反思**:
+```text
+CONTEXT: [任务]
+REFLECTION: [发生了什么]
+LESSON: [下次改什么]
+```
+
+**主动成功**:
+- 如果某个主动操作反复有帮助 → 记录到 `log.md`
+- 推广到 `patterns.md`
+
+### Heartbeat 行为
+
+应该:
+- 重新检查承诺的跟进
+- 回顾停滞的阻塞点
+- 检测缺失的下一步
+- 只在有价值时展示准备好的建议
+- 对 learnings 做维护但不 spam
+
+只发送当:
+- 有什么变化
+- 需要做决策
+- 准备好草稿/建议
+- 等待有实际成本
+
+保持安静当:
+- 没有变化
+- 信号弱
+- 消息只是重复旧信息
+
+### 推广/衰减规则
+
+**self-improving memory**:
+- 7 天内重复 3 次 → 推广到 HOT
+- 30 天未使用 → 降级为 WARM
+- 90 天未使用 → 归档
+- 从未在没有询问的情况下删除已确认的偏好
+
+**proactive patterns**:
+- 只保留反复创造价值的操作
+- 移除陈旧或嘈杂的模式
+- 有用胜过聪明
+
+### 范围
+
+**这个技能会**:
+- 维护本地学习和主动状态
+- 通过纠正、反思和重复成功改进行为
+- 支持恢复和 heartbeat 跟进
+- 在用户想要时提议 workspace 集成
+
+**这个技能不会**:
+- 从沉默推断持久规则
+- 发送消息、花钱、删除数据或做出承诺
+- 在记忆中存储凭据或机密
+- 未经用户询问重写无关文件
+
+*记忆更新时间：2026-04-22*
+
+---
+
+## Skill 查找器技能
+
+**技能名称**：`skill-finder-cn`
+- **目录位置**: `/Users/zhu/.openclaw/workspace/skills/skill-finder-cn`
+- **homepage**: https://clawhub.ai
+- **emoji**: 🔍
+- **作者**: 赚钱小能手
+- **触发词**: "找 skill"、"find skill"、"搜索 skill"
+
+### 用途
+帮助用户发现和安装 ClawHub 上的 Skills。
+回答"有什么技能可以 X"、"找一个技能"等查询。
+
+### 工作流程
+
+```
+1. 理解用户需求
+2. 提取关键词
+3. 搜索 ClawHub  → clawhub search "<需求>"
+4. 列出相关 Skills（含下载量/stars）
+5. 推荐最合适的 Skill
+6. 安装后验证是否成功
+```
+
+### 常用命令
+
+```bash
+# 搜索 Skills
+clawhub search "<用户需求>"
+
+# 查看详情（含统计数据）
+clawhub inspect <skill-name>
+
+# API 查询 stats
+curl "https://clawhub.ai/api/v1/skills/<skill-name>" | jq '.skill.stats'
+
+# 安装 Skill
+clawhub install <skill-name>
+
+# 验证安装
+ls ~/.openclaw/workspace/skills/<skill-name>/SKILL.md
+
+# 检查已安装的 Skill
+clawhub list
+# 或
+ls ~/.openclaw/workspace/skills/
+```
+
+### 输出格式
+
+```markdown
+🔍 "时间管理" 搜索结果：
+
+1. time-management-2
+   描述：有效管理时间，避免过度工作
+   下载：1,234 | Stars: 15 | ✅ 已安装
+
+2. productivity
+   描述：生产力系统，包含目标/任务/习惯
+   下载：5,678 | Stars: 42 | ❌ 未安装
+```
+
+### 示例
+
+**用户**: "有什么 skill 可以帮我监控加密货币价格？"
+
+**搜索**: `clawhub search "crypto price monitor"`
+
+**推荐输出**:
+```
+🔍 "加密货币价格监控" 结果：
+
+1. crypto-tracker
+   描述：加密货币价格追踪和提醒
+   下载：2,345 | Stars: 28 | ❌ 未安装
+   → 推荐安装
+
+安装命令：clawhub install crypto-tracker
+安装后验证：ls ~/.openclaw/workspace/skills/crypto-tracker/SKILL.md
+```
+
+*记忆更新时间：2026-04-22*
+
+---
+
+## 团队通信规则
+
+**重要规则**:与其他虾（团队成员）进行通信时，必须使用**子代理模型**！
+
+### 如何操作
+
+当需要与其他 agent 通信时:
+```bash
+# 使用 sessions_spawn 子代理模型
+sessions_spawn(task="向 XX 号汇报工作", runtime="subagent")
+```
+
+
+
+### 为什么必须使用子代理模型
+
+1. **成本优化**：子代理使用轻量模型，降低 token 消耗
+2. **隔离性**：避免主 session 污染，保持上下文清晰
+3. **效率提升**：子代理专注单一任务，执行更快
+
+### 适用场景
+
+- ✅ 向总经理 (0 号) 汇报工作
+- ✅ 与品牌展示虾 (1 号) 协同内容
+- ✅ 与引流获客虾 (2 号) 共享线索
+- ✅ 与销售虾 (4A/4B) 确认客户需求
+- ✅ 与代办虾 (5A/5B) 同步案件进度
+- ✅ 向数据虾 (7 号) 请求分析报告
+
+### 注意事项
+
+- ❌ 不要直接在主 session 中@其他 agent
+- ❌ 不要用普通 exec/curl 命令通知同事
+- ✅ 统一使用 `sessions_spawn` 子代理模型 
+
+*记忆更新时间：2026-04-22*

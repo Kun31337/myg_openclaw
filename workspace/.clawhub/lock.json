@@ -4,6 +4,18 @@
     "multi-search-engine-simple": {
       "version": "1.0.0",
       "installedAt": 1776755507024
+    },
+    "agent-browser-clawdbot": {
+      "version": "0.1.0",
+      "installedAt": 1776836530595
+    },
+    "self-improving-proactive-agent": {
+      "version": "1.0.0",
+      "installedAt": 1776839869837
+    },
+    "skill-finder-cn": {
+      "version": "1.0.1",
+      "installedAt": 1776840303786
     }
   }
 }
